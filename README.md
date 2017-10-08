@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jhetherly/linear_binning.svg?branch=master)](https://travis-ci.org/jhetherly/linear_binning)
+[![Build Status](https://travis-ci.org/jhetherly/python_knapsack.svg?branch=master)](https://travis-ci.org/jhetherly/python_knapsack)
 
 # python_knapsack: Solves a variety of knapsack problems
 
