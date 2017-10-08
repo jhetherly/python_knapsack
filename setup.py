@@ -37,22 +37,36 @@ here = os.path.abspath(os.path.dirname(__file__))
 mthm_extension_name = "knapsack_python.python.cython.mthm"
 mthm_cpp_sourcefiles = []
 mthm_cython_sourcefile = 'knapsack_python/python/cython/mthm.pyx'
+assign_all_extension_name = "knapsack_python.python.cython.assign_all"
+assign_all_cpp_sourcefiles = []
+assign_all_cython_sourcefile = 'knapsack_python/python/cython/assign_all.pyx'
 include_path = [np.get_include(), 'knapsack_python/cpp/include']
 
 if use_cython:
     mthm_sourcefiles = mthm_cpp_sourcefiles + [mthm_cython_sourcefile]
+    assign_all_sourcefiles = assign_all_cpp_sourcefiles + [assign_all_cython_sourcefile]
     extensions = [
         Extension(mthm_extension_name,
                   sources=mthm_sourcefiles,
+                  include_dirs=include_path,
+                  language='c++'),
+        Extension(assign_all_extension_name,
+                  sources=assign_all_sourcefiles,
                   include_dirs=include_path,
                   language='c++')
         ]
 else:
     mthm_sourcefiles = mthm_cpp_sourcefiles + \
         [mthm_cython_sourcefile.copy().replace('.pyx', '.cpp')]
+    assign_all_sourcefiles = assign_all_cpp_sourcefiles + \
+        [assign_all_cython_sourcefile.copy().replace('.pyx', '.cpp')]
     extensions = [
         Extension(mthm_extension_name,
                   sources=mthm_sourcefiles,
+                  include_dirs=include_path,
+                  language='c++'),
+        Extension(assign_all_extension_name,
+                  sources=assign_all_sourcefiles,
                   include_dirs=include_path,
                   language='c++')
         ]
@@ -69,7 +83,7 @@ long_description = read('README.rst', 'CHANGELOG.rst')
 
 setup(
     name="knapsack_python",
-    version='0.0.1',
+    version='0.1.0',
     url='https://github.com/jhetherly/knapsack_python',
     license='MIT',
     author='Jeff Hetherly',

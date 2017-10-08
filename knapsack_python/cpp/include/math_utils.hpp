@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <cmath>
 #include <vector>
+#include <algorithm>
 
 
 namespace mkp {
