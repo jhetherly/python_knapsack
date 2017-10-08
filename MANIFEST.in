@@ -1,0 +1,13 @@
+# NOTE: before upload
+# pandoc --from=markdown --to=rst --output=README.rst README.md
+# pandoc --from=markdown --to=rst --output=CHANGELOG.rst CHANGELOG.md
+# update version number here and GitHub
+# ensure that ~/.pypirc is configured correctly
+# python setup.py register
+# python setup.py sdist upload
+
+include setup.cfg
+include setup.py
+include README.rst
+include CHANGELOG.md
+recursive-include python_knapsack *
