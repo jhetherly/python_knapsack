@@ -1,4 +1,4 @@
-from python_knapsack import mthm, mthm_assign_all
+from knapsack_python import mthm, mthm_assign_all
 import numpy as np
 import logging
 

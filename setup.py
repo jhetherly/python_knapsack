@@ -34,10 +34,10 @@ ext_modules = []
 
 here = os.path.abspath(os.path.dirname(__file__))
 # NOTE: extension name must match .pyx file name
-mthm_extension_name = "python_knapsack.python.cython.mthm"
+mthm_extension_name = "knapsack_python.python.cython.mthm"
 mthm_cpp_sourcefiles = []
-mthm_cython_sourcefile = 'python_knapsack/python/cython/mthm.pyx'
-include_path = [np.get_include(), 'python_knapsack/cpp/include']
+mthm_cython_sourcefile = 'knapsack_python/python/cython/mthm.pyx'
+include_path = [np.get_include(), 'knapsack_python/cpp/include']
 
 if use_cython:
     mthm_sourcefiles = mthm_cpp_sourcefiles + [mthm_cython_sourcefile]
@@ -68,9 +68,9 @@ else:
 long_description = read('README.rst', 'CHANGELOG.rst')
 
 setup(
-    name="python_knapsack",
+    name="knapsack_python",
     version='0.0.1',
-    url='https://github.com/jhetherly/python_knapsack',
+    url='https://github.com/jhetherly/knapsack_python',
     license='MIT',
     author='Jeff Hetherly',
     author_email='jeffrey.hetherly@gmail.com',
@@ -78,8 +78,8 @@ setup(
     description='Solves a variety of knapsack problems',
     long_description=long_description,
     install_requires=['numpy'],
-    packages=['python_knapsack'],
+    packages=['knapsack_python'],
     cmdclass=cmdclass,
     ext_modules=ext_modules,
-    include_dirs=[np.get_include(), 'python_knapsack/cpp/include']
+    include_dirs=[np.get_include(), 'knapsack_python/cpp/include']
 )

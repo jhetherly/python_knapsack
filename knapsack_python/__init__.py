@@ -1,4 +1,4 @@
-from python_knapsack.python.cython.mthm import cython_mthm, cython_mthm_assign_all
+from knapsack_python.python.cython.mthm import cython_mthm, cython_mthm_assign_all
 
 
 def mthm (w, c, p=None, min_iter=10):
