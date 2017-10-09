@@ -6,9 +6,6 @@
 #include "math_utils.hpp"
 
 
-#include <iostream>
-
-
 namespace mkp {
 
 template<class ProfitT, class WeightT,
@@ -56,24 +53,6 @@ ProfitT assign_all_impl(const ProfitT *p, const WeightT *w,
    * y_return:          array of group assignments (output)
    * NO_GROUP:          special group that represents no group
    */
-
-  std::cout << "\nassign_all_impl";
-  std::cout << "\np = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << p[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-  std::cout << "\nw = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << w[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-  std::cout << "\nc = ";
-  for (std::size_t i = 0; i < m; ++i) {
-    std::cout << c[i];
-    if (i < m - 1) std::cout << ", ";
-  }
-
 
   std::size_t number_of_unassigned_items = mkp::count_occurance(y_return, n, NO_GROUP);
   WeightT *packsizes = new WeightT[m];

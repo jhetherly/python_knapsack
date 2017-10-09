@@ -101,45 +101,45 @@ def test_mthm():
     assert score == target_score
 
 
-def test_mthm_assign_all():
-    p, w, c = static_data()
-
-    # number of items
-    n = len(w)
-    # number of knapsacks
-    m = len(c)
-
-    # NOTE: this is to try to make the weights and capacities not align
-    chunked_w = np.empty(n//2)
-    for i in range(n//2):
-        chunked_w[i] = w[2*i] + w[2*i + 1]
-    chunked_w = chunked_w.astype(c.dtype)
-
-    # target output
-    target_y = np.array([7, 7, 7, 7, 7, 7, 8, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0,
-                         8, 0, 0, 0, 0, 0, 0, 0, 3, 9, 0, 0, 0, 9, 6, 6, 9, 9,
-                         7, 9, 2, 9, 9, 9, 6, 9, 6, 9, 4, 5, 7, 9, 6, 9, 9, 6,
-                         6, 6, 7, 7, 0, 7, 0, 7, 8, 4, 2, 2, 2, 2, 6, 2, 2, 2,
-                         2, 1, 2, 3, 3, 6, 3, 3, 3, 1, 6, 3, 3, 3, 1, 1, 1, 1,
-                         1, 1, 1, 1, 0, 0, 0, 5, 5, 5, 5, 6, 5, 5, 5, 5, 5, 9,
-                         9, 6, 9, 9, 9, 9, 6, 4, 4, 4, 1, 4, 4, 4, 4, 4, 2])
-    target_score = 6391
-
-
-    score, y = mthm(chunked_w, c)
-
-    # print(chunked_w)
-
-    score, y_all = assign_all(chunked_w, c, y, z_init=score, max_balance_iter=100)
-
-    # print(score, y_all)
-    actual_c = []
-    for i in range(len(c)):
-        actual_c.append(chunked_w[y_all == i].sum())
-    actual_c = np.array(actual_c)
-    # print(actual_c)
-    # print((np.abs(actual_c - c)/c).mean())
-    # print((np.abs(actual_c - c)/c).std())
-
-    assert np.allclose(y_all, target_y)
-    assert score == target_score
+# def test_mthm_assign_all():
+#     p, w, c = static_data()
+#
+#     # number of items
+#     n = len(w)
+#     # number of knapsacks
+#     m = len(c)
+#
+#     # NOTE: this is to try to make the weights and capacities not align
+#     chunked_w = np.empty(n//2)
+#     for i in range(n//2):
+#         chunked_w[i] = w[2*i] + w[2*i + 1]
+#     chunked_w = chunked_w.astype(c.dtype)
+#
+#     # target output
+#     target_y = np.array([7, 7, 7, 7, 7, 7, 8, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0,
+#                          8, 0, 0, 0, 0, 0, 0, 0, 3, 9, 0, 0, 0, 9, 6, 6, 9, 9,
+#                          7, 9, 2, 9, 9, 9, 6, 9, 6, 9, 4, 5, 7, 9, 6, 9, 9, 6,
+#                          6, 6, 7, 7, 0, 7, 0, 7, 8, 4, 2, 2, 2, 2, 6, 2, 2, 2,
+#                          2, 1, 2, 3, 3, 6, 3, 3, 3, 1, 6, 3, 3, 3, 1, 1, 1, 1,
+#                          1, 1, 1, 1, 0, 0, 0, 5, 5, 5, 5, 6, 5, 5, 5, 5, 5, 9,
+#                          9, 6, 9, 9, 9, 9, 6, 4, 4, 4, 1, 4, 4, 4, 4, 4, 2])
+#     target_score = 6391
+#
+#
+#     score, y = mthm(chunked_w, c)
+#
+#     # print(chunked_w)
+#
+#     score, y_all = assign_all(chunked_w, c, y, z_init=score, max_balance_iter=100)
+#
+#     # print(score, y_all)
+#     actual_c = []
+#     for i in range(len(c)):
+#         actual_c.append(chunked_w[y_all == i].sum())
+#     actual_c = np.array(actual_c)
+#     # print(actual_c)
+#     # print((np.abs(actual_c - c)/c).mean())
+#     # print((np.abs(actual_c - c)/c).std())
+#
+#     assert np.allclose(y_all, target_y)
+#     assert score == target_score
