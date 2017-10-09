@@ -47,12 +47,12 @@ extensions = []
 for extention_info in extentions_info:
     sourcefiles = extention_info.get("cpp_sourcefiles", [])
     cython_sourcefile = extention_info.get("cython_sourcefile")
-    # NOTE: extension name must match .pyx file name
-    extension_name = cython_sourcefile.replace('.pyx', '').replace(os.sep, '.')
     if use_cython:
         sourcefiles += [cython_sourcefile]
     else:
         sourcefiles += [cython_sourcefile.replace('.pyx', '.cpp')]
+    # NOTE: extension name must match .pyx file name
+    extension_name = cython_sourcefile.replace('.pyx', '').replace(os.sep, '.')
     extensions.append(Extension(extension_name,
                                 sources=sourcefiles,
                                 include_dirs=include_path,
