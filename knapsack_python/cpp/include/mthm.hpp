@@ -11,6 +11,9 @@
 #include "greedy.hpp"
 
 
+#include <iostream>
+
+
 namespace mkp {
 
 template<class ProfitT, class WeightT,
@@ -31,6 +34,23 @@ ProfitT mthm_impl(const ProfitT *p, const WeightT *w,
    * y_return:  array of group assignments (output)
    * NO_GROUP:  special group that represents no group
    */
+
+  std::cout << "\nmthm_impl";
+  std::cout << "\np = ";
+  for (std::size_t j = 0; j < n; ++j) {
+    std::cout << p[j];
+    if (j < n - 1) std::cout << ", ";
+  }
+  std::cout << "\nw = ";
+  for (std::size_t j = 0; j < n; ++j) {
+    std::cout << w[j];
+    if (j < n - 1) std::cout << ", ";
+  }
+  std::cout << "\nc = ";
+  for (std::size_t i = 0; i < m; ++i) {
+    std::cout << c[i];
+    if (i < m - 1) std::cout << ", ";
+  }
 
   std::vector<std::size_t> c_sorted_args = mkp::argsort_ascending(c, m);
 
