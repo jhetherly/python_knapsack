@@ -86,29 +86,19 @@ def test_mthm():
 
     score, y = mthm(chunked_w, c)
 
-    print(chunked_w)
+    # print(chunked_w)
 
-    print(score, y)
+    # print(score, y)
     actual_c = []
     for i in range(len(c)):
         actual_c.append(chunked_w[y == i].sum())
     actual_c = np.array(actual_c)
-    print(actual_c)
-    print((np.abs(actual_c - c)/c).mean())
-    print((np.abs(actual_c - c)/c).std())
+    # print(actual_c)
+    # print((np.abs(actual_c - c)/c).mean())
+    # print((np.abs(actual_c - c)/c).std())
 
     assert np.allclose(y, target_y)
     assert score == target_score
-
-    # score, y_all = assign_all(chunked_w, c, y, max_balance_iter=100)
-    # print(y_all)
-    # actual_all_c = []
-    # for i in range(len(c)):
-    #     actual_all_c.append(chunked_w[y_all == i].sum())
-    # actual_all_c = np.array(actual_all_c)
-    # print(actual_all_c)
-    # print((np.abs(actual_all_c - c)/c).mean())
-    # print((np.abs(actual_all_c - c)/c).std())
 
 
 def test_mthm_assign_all():
@@ -138,18 +128,18 @@ def test_mthm_assign_all():
 
     score, y = mthm(chunked_w, c)
 
-    print(chunked_w)
+    # print(chunked_w)
 
     score, y_all = assign_all(chunked_w, c, y, z_init=score, max_balance_iter=100)
 
-    print(score, y_all)
+    # print(score, y_all)
     actual_c = []
     for i in range(len(c)):
         actual_c.append(chunked_w[y_all == i].sum())
     actual_c = np.array(actual_c)
-    print(actual_c)
-    print((np.abs(actual_c - c)/c).mean())
-    print((np.abs(actual_c - c)/c).std())
+    # print(actual_c)
+    # print((np.abs(actual_c - c)/c).mean())
+    # print((np.abs(actual_c - c)/c).std())
 
     assert np.allclose(y_all, target_y)
     assert score == target_score
