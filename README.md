@@ -25,6 +25,8 @@ Cython for use in Python.
 
 ## Quickstart
 
+### Installation
+
 * pip install knapsack_python
 
 or
@@ -33,8 +35,22 @@ or
 * cd python_knapsack
 * python setup.py install
 
+### Use
+
+All functions live in the `knapsack_python` module.
+
 ## Example
 
 ## Dependencies
 
 * numpy
+
+## TODOs
+
+* More comprehensive documentation
+* Implement other knapsack-related problems such as:
+    * 0-1 Knapsack Problem (really a special case of MKP)
+    * Multiple-Choice Knapsack Problem
+    * Bounded/Unbounded Knapsack Problem
+    * Change-Making Problem
+    * Generalized Assignment Problem
