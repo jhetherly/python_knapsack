@@ -88,8 +88,8 @@ std::vector<std::size_t> argsort_descending(const ArrayT &a, const std::size_t &
   std::vector<std::size_t> sorted_args(n);
 
   for (std::size_t j = 0; j < n; ++j) sorted_args[j] = j;
-  std::sort(sorted_args.begin(), sorted_args.end(),
-            DescendingArgSort<ArrayT>(a));
+  std::stable_sort(sorted_args.begin(), sorted_args.end(),
+                   DescendingArgSort<ArrayT>(a));
 
   return sorted_args;
 }
@@ -100,8 +100,8 @@ std::vector<std::size_t> argsort_ascending(const ArrayT &a, const std::size_t &n
   std::vector<std::size_t> sorted_args(n);
 
   for (std::size_t j = 0; j < n; ++j) sorted_args[j] = j;
-  std::sort(sorted_args.begin(), sorted_args.end(),
-            AscendingArgSort<ArrayT>(a));
+  std::stable_sort(sorted_args.begin(), sorted_args.end(),
+                   AscendingArgSort<ArrayT>(a));
 
   return sorted_args;
 }

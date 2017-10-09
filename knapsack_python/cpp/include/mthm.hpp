@@ -11,9 +11,6 @@
 #include "greedy.hpp"
 
 
-#include <iostream>
-
-
 namespace mkp {
 
 template<class ProfitT, class WeightT,
@@ -35,39 +32,10 @@ ProfitT mthm_impl(const ProfitT *p, const WeightT *w,
    * NO_GROUP:  special group that represents no group
    */
 
-  std::cout << "\nmthm_impl";
-  std::cout << "\np = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << p[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-  std::cout << "\nw = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << w[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-  std::cout << "\nc = ";
-  for (std::size_t i = 0; i < m; ++i) {
-    std::cout << c[i];
-    if (i < m - 1) std::cout << ", ";
-  }
-
   std::vector<std::size_t> c_sorted_args = mkp::argsort_ascending(c, m);
-
-  std::cout << "\nc_sorted_args = ";
-  for (std::size_t i = 0; i < m; ++i) {
-    std::cout << c_sorted_args[i];
-    if (i < m - 1) std::cout << ", ";
-  }
 
   WeightT *c_sorted = new WeightT[m];
   for (std::size_t i = 0; i < m; ++i) c_sorted[i] = c[c_sorted_args[i]];
-
-  std::cout << "\nc_sorted = ";
-  for (std::size_t i = 0; i < m; ++i) {
-    std::cout << c_sorted[i];
-    if (i < m - 1) std::cout << ", ";
-  }
 
   ProfitT total_profit = 0;
   std::vector<double> p_w(n);
@@ -77,12 +45,6 @@ ProfitT mthm_impl(const ProfitT *p, const WeightT *w,
   }
   std::vector<std::size_t> pw_sorted_args = mkp::argsort_descending(p_w, n);
 
-  std::cout << "\npw_sorted_args = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << pw_sorted_args[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-
   ProfitT *p_sorted = new ProfitT[n];
   WeightT *w_sorted = new WeightT[n];
   GroupT *y = new GroupT[n];
@@ -90,17 +52,6 @@ ProfitT mthm_impl(const ProfitT *p, const WeightT *w,
     p_sorted[j] = p[pw_sorted_args[j]];
     w_sorted[j] = w[pw_sorted_args[j]];
     y[j] = NO_GROUP;
-  }
-
-  std::cout << "\np_sorted = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << p_sorted[j];
-    if (j < n - 1) std::cout << ", ";
-  }
-  std::cout << "\nw_sorted = ";
-  for (std::size_t j = 0; j < n; ++j) {
-    std::cout << w_sorted[j];
-    if (j < n - 1) std::cout << ", ";
   }
 
   WeightT *c_bar = new WeightT[m];
