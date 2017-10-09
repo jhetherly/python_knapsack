@@ -86,6 +86,8 @@ def test_mthm():
 
     score, y = mthm(chunked_w, c)
 
+    print(chunked_w)
+
     print(score, y)
     actual_c = []
     for i in range(len(c)):
@@ -135,6 +137,8 @@ def test_mthm_assign_all():
 
 
     score, y = mthm(chunked_w, c)
+
+    print(chunked_w)
 
     score, y_all = assign_all(chunked_w, c, y, z_init=score, max_balance_iter=100)
 
