@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jhetherly/knapsack_python.svg?branch=master)](https://travis-ci.org/jhetherly/knapsack_python)
+[![Build Status](https://travis-ci.org/jhetherly/python_knapsack.svg?branch=master)](https://travis-ci.org/jhetherly/python_knapsack)
 
 # knapsack_python: Solves a variety of knapsack problems
 
@@ -29,8 +29,8 @@ Cython for use in Python.
 
 or
 
-* git clone https://github.com/knapsack_python
-* cd knapsack_python
+* git clone https://github.com/python_knapsack
+* cd python_knapsack
 * python setup.py install
 
 ## Example

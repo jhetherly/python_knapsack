@@ -31,8 +31,8 @@ Quickstart
 
 or
 
--  git clone https://github.com/knapsack\_python
--  cd knapsack\_python
+-  git clone https://github.com/python\_knapsack
+-  cd python\_knapsack
 -  python setup.py install
 
 Example
@@ -43,5 +43,5 @@ Dependencies
 
 -  numpy
 
-.. |Build Status| image:: https://travis-ci.org/jhetherly/knapsack_python.svg?branch=master
-   :target: https://travis-ci.org/jhetherly/knapsack_python
+.. |Build Status| image:: https://travis-ci.org/jhetherly/python_knapsack.svg?branch=master
+   :target: https://travis-ci.org/jhetherly/python_knapsack
