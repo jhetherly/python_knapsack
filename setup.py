@@ -70,7 +70,7 @@ long_description = read('README.rst', 'CHANGELOG.rst')
 
 setup(
     name="knapsack_python",
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/jhetherly/python_knapsack',
     license='MIT',
     author='Jeff Hetherly',
