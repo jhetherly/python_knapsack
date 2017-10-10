@@ -27,6 +27,7 @@ $RECYCLE.BIN/
 build
 dist
 MANIFEST
+*__pycache__*
 
 # =========================
 # Operating System Files
