@@ -1,4 +1,6 @@
+import numpy
 from knapsack_python.python.cython.mthm import cython_mthm
+from knapsack_python.python.cython.mthg import cython_mthg
 from knapsack_python.python.cython.assign_all import cython_assign_all
 
 
@@ -28,6 +30,50 @@ def mthm (w, c, p=None, min_iter=10):
         p = w.copy()
 
     return cython_mthm(p, w, c, min_iter)
+
+
+def mthg (w, c, p=None, f=None):
+    """Solves the generalized assignment problem with an approximate method
+
+    This is based on the "mthg" method detailed in Chapter 7.
+
+    Parameters
+    ----------
+    p : array of item profits
+    w : array of item weights
+    f : array of item affinities
+    c : array of capacities
+
+    Returns
+    -------
+    scalar sum of profits that were able to be packed in the knapsacks
+    1D array of length len(p)//len(c) that contains the knapsack assignments
+        for each item
+    """
+
+    assert w.dtype == c.dtype
+
+    if p is None:
+        p = w.copy()
+
+    run_improvement = True
+    if isinstance(f, str):
+        if f == "profit":
+            f = p
+            run_improvement = False
+        elif f == "profit/weight":
+            f = p/w
+        elif f == "negative weight":
+            f = -w
+        elif f == "negative weight/capacity":
+            f = -w/c
+    elif f is None:
+        f = p
+        run_improvement = False
+    elif numpy.allclose(f, p):
+        run_improvement = False
+
+    return cython_mthg(p, w, f, c, run_improvement)
 
 
 def assign_all (w, c, y_init,

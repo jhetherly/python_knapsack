@@ -5,8 +5,8 @@
 This package is a collection of solutions to various knapsack problems.
 In particular, it has solutions to:
 
-* the 01 knapsack problem,
-* the 01 multi-knapsack problem (MKP),
+* the 0-1 knapsack problem,
+* the 0-1 multi-knapsack problem (MKP),
 
 and potentially more in the future.
 A good introduction to these sorts of problems can be found on Wikipedia

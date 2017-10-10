@@ -38,6 +38,9 @@ extentions_info = [
         "cython_sourcefile": "knapsack_python/python/cython/mthm.pyx"
     },
     {
+        "cython_sourcefile": "knapsack_python/python/cython/mthg.pyx"
+    },
+    {
         "cython_sourcefile": "knapsack_python/python/cython/assign_all.pyx"
     }
 ]
